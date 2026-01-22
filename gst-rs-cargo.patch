@@ -1,0 +1,44 @@
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -140,23 +140,23 @@ gdk-wayland = { package = "gdk4-wayland", git = "https://github.com/gtk-rs/gtk4
+ gdk-x11 = { package = "gdk4-x11", git = "https://github.com/gtk-rs/gtk4-rs", branch = "main", features = ["v4_4"]}
+ gdk-win32 = { package = "gdk4-win32", git = "https://github.com/gtk-rs/gtk4-rs", branch = "main", features = ["v4_4"]}
+-gst = { package = "gstreamer", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-allocators = { package = "gstreamer-allocators", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-analytics = { package = "gstreamer-analytics", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-app = { package = "gstreamer-app", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-audio = { package = "gstreamer-audio", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-base = { package = "gstreamer-base", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-check = { package = "gstreamer-check", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-gl = { package = "gstreamer-gl", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-gl-egl = { package = "gstreamer-gl-egl", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-gl-wayland = { package = "gstreamer-gl-wayland", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-gl-x11 = { package = "gstreamer-gl-x11", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-net = { package = "gstreamer-net", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-pbutils = { package = "gstreamer-pbutils", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
++gst = { package = "gstreamer", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-allocators = { package = "gstreamer-allocators", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-analytics = { package = "gstreamer-analytics", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-app = { package = "gstreamer-app", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-audio = { package = "gstreamer-audio", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-base = { package = "gstreamer-base", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-check = { package = "gstreamer-check", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-gl = { package = "gstreamer-gl", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-gl-egl = { package = "gstreamer-gl-egl", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-gl-wayland = { package = "gstreamer-gl-wayland", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-gl-x11 = { package = "gstreamer-gl-x11", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-net = { package = "gstreamer-net", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-pbutils = { package = "gstreamer-pbutils", git = "file:///root/gstreamer-rs", branch = "dsc" }
+ gst-plugin-version-helper = { path="./version-helper" }
+-gst-rtp = { package = "gstreamer-rtp", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-sdp = { package = "gstreamer-sdp", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-tag = { package = "gstreamer-tag", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-utils = { package = "gstreamer-utils", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-video = { package = "gstreamer-video", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
+-gst-webrtc = { package = "gstreamer-webrtc", git = "https://gitlab.freedesktop.org/gstreamer/gstreamer-rs", branch = "main" }
++gst-rtp = { package = "gstreamer-rtp", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-sdp = { package = "gstreamer-sdp", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-tag = { package = "gstreamer-tag", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-utils = { package = "gstreamer-utils", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-video = { package = "gstreamer-video", git = "file:///root/gstreamer-rs", branch = "dsc" }
++gst-webrtc = { package = "gstreamer-webrtc", git = "file:///root/gstreamer-rs", branch = "dsc" }
