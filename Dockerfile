@@ -117,7 +117,7 @@ RUN git clone --branch dsc https://gitlab.freedesktop.org/diegonieto/gstreamer-r
 
 # Clone GStreamer plugins in Rust
 COPY gst-rs-cargo.patch /tmp/gst-rs-cargo.patch
-RUN git clone --depth=1 --branch dsc https://github.com/fluendo/gst-plugins-rs.git gst-plugins-rs \
+RUN git clone --depth=1 --branch dsc-upstream https://gitlab.freedesktop.org/diegonieto/gst-plugins-rs.git gst-plugins-rs \
     && cd gst-plugins-rs \
     && patch -p1 < /tmp/gst-rs-cargo.patch \
     && cargo build -p gst-plugin-dsc
