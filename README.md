@@ -18,10 +18,15 @@ docker build -t dsc .
 ## Running the container
 
 ```bash
+# Allow local Docker containers to access the X server for GUI support; run
+# 'xhost -local:docker' after use to restore the default X11 security policy.
+xhost +local:docker
 docker run \
     --privileged \
     -e DISPLAY \
     --rm \
+    -e XDG_RUNTIME_DIR=$(echo $XDG_RUNTIME_DIR) \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $(pwd):/app \
     -it \
     dsc bash
@@ -134,4 +139,9 @@ gst-launch-1.0 videotestsrc num-buffers=15 ! \
             substream-length=5 ! \
   dscverifier key-store-path=/root/VVCSoftware_VTM/cfg/keystore/public/ ! \
   fakesink
+```
+
+### Showtime
+```bash
+showtime /root/UFO-DSC-Example/UFO-DSC-Example/ufo.bin
 ```
