@@ -123,6 +123,7 @@ RUN wget "https://drive.usercontent.google.com/download?id=1A8ZtCtwShd3C5ZADjsMR
     && rm UFO-DSC-Example.zip
 
 ENV DSC_KEY_STORE_PATH=/root/UFO-DSC-Example/UFO-DSC-Example/keystore/pub/
+ENV DSC_TRUST_STORE_PATH=/root/UFO-DSC-Example/UFO-DSC-Example/keystore/ca/
 
 ENV PYTHONPATH="/usr/local/lib/python3.13/site-packages:/usr/local/lib/python3/dist-packages:${PYTHONPATH}"
 
