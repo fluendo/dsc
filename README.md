@@ -23,10 +23,9 @@ docker build -t dsc .
 xhost +local:docker
 docker run \
     --privileged \
-    -e DISPLAY \
     --rm \
-    -e XDG_RUNTIME_DIR=$(echo $XDG_RUNTIME_DIR) \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e XDG_RUNTIME_DIR \
+    -v /run/user/$UID:/run/user/$UID \
     -v $(pwd):/app \
     -it \
     dsc bash
