@@ -58,6 +58,7 @@ WORKDIR /root
 RUN git clone --depth=1 --branch h266seiinserter https://gitlab.freedesktop.org/diegonieto/gstreamer.git gstreamer \
     && cd gstreamer \
     && meson build --prefix=/usr/local \
+        --buildtype=release \
         -Dgst-plugins-bad:videoparsers=enabled \
         -Dgstreamer:tools=enabled \
         -Dlibav=enabled \
@@ -70,7 +71,7 @@ RUN git clone --depth=1 --branch h266seiinserter https://gitlab.freedesktop.org/
 RUN git clone --branch dsc https://gitlab.freedesktop.org/diegonieto/gstreamer-rs.git gstreamer-rs \
     && cd gstreamer-rs \
     && git submodule update --init \
-    && cargo build -p gstreamer-video -F v1_30
+    && cargo build --release -p gstreamer-video -F v1_30
 
 # Clone GStreamer plugins in Rust
 COPY gst-rs-cargo.patch /tmp/gst-rs-cargo.patch
@@ -94,7 +95,7 @@ RUN rm -f /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstv4l2codecs.so \
 # Clone and build Showtime video player with DSC support
 RUN git clone --depth=1 --branch dsc https://github.com/fluendo/showtime.git showtime \
     && cd showtime \
-    && meson setup build --prefix=/usr/local \
+    && meson setup build --prefix=/usr/local --buildtype=release \
     && ninja -C build \
     && ninja -C build install \
     && cd .. \
