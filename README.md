@@ -1,5 +1,5 @@
 # DSC Development Container
-This is a development container for Digital Signature of Content (DSC) implementation and testing. It includes VVC VTM (VVCSoftware Video Test Model) encoder/decoder and GStreamer plugins for signing and verifying video streams with digital signatures.
+This is a development container for Digital Signature of Content (DSC) implementation and testing. It includes VVC VTM (VVCSoftware Video Test Model) and HM encoder/decoder toolchains plus GStreamer plugins for signing and verifying video streams with digital signatures.
 
 The container provides a complete environment for:
 - Encoding and signing video streams using VVC VTM and HM
@@ -8,6 +8,9 @@ The container provides a complete environment for:
 - Working with both H.266/VVC and HEVC/H.265 codecs
 
 This README contains sequential test cases to verify the DSC functionality across different encoding and verification scenarios.
+
+The validation and development work for both H.266/VVC and H.265/HEVC in GStreamer is tracked in the GStreamer work item:
+- https://gitlab.freedesktop.org/gstreamer/gstreamer/-/work_items/4841
 
 ## Building the container
 
