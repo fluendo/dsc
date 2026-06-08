@@ -55,7 +55,7 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 WORKDIR /root
 
 # Clone and build GStreamer
-RUN git clone --depth=1 --branch h266seiinserter https://gitlab.freedesktop.org/diegonieto/gstreamer.git gstreamer \
+RUN git clone --depth=1 --branch h265-sei-dsc https://gitlab.freedesktop.org/diegonieto/gstreamer.git gstreamer \
     && cd gstreamer \
     && meson build --prefix=/usr/local \
         --buildtype=release \
@@ -85,8 +85,22 @@ RUN git clone --depth=1 --branch dsc-upstream https://gitlab.freedesktop.org/die
 RUN git clone --depth=1 --branch VTM-23.13 https://vcgit.hhi.fraunhofer.de/jvet/VVCSoftware_VTM.git VVCSoftware_VTM \
     && cd VVCSoftware_VTM \
     && mkdir build && cd build \
-    && cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_TRACING=true -DCMAKE_CXX_FLAGS="-Wno-error=unused-value" \
+    && cmake .. -DCMAKE_BUILD_TYPE=Release -DENABLE_TRACING=true -DCMAKE_CXX_FLAGS="-Wno-error=unused-value" \
     && make -j"$(nproc)"
+
+# Clone and build HM (HEVC reference software) pinned to the H.265 validation baseline
+RUN git clone https://vcgit.hhi.fraunhofer.de/jvet/HM.git HM \
+        && cd HM \
+        && git checkout 05dd0366550e7580d0009bfec6153f827c77bf41 \
+        && if [ -f CMakeLists.txt ]; then \
+                 mkdir -p build && cd build \
+                 && cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Wno-error=unused-value" \
+                 && make -j"$(nproc)"; \
+             elif [ -f build/linux/makefile ]; then \
+                 make -C build/linux -j"$(nproc)"; \
+             else \
+                 echo "Unsupported HM build layout" && exit 1; \
+             fi
 
 # Remove conflicting system GStreamer plugins that cause symbol errors
 RUN rm -f /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstv4l2codecs.so \
