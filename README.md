@@ -141,7 +141,7 @@ cd /root/VVCSoftware_VTM/bin
 > GStreamer sign/verify. It requires HM binaries (`TAppEncoderStatic` and
 > `TAppDecoderStatic`) and HM keystore/truststore files.
 
-### Make HM to encode and sign a stream (H.265)
+### Make HM to encode and sign a stream
 ```bash
 cd /root/HM/bin
 ./TAppEncoderStatic \
@@ -154,7 +154,7 @@ cd /root/HM/bin
     -c ../cfg/sei/digitally_signed_content.cfg
 ```
 
-### Make HM to decode and verify an HM-signed stream (H.265)
+### Make HM to decode and verify an HM-signed stream
 ```bash
 cd /root/HM/bin
 ./TAppDecoderStatic \
@@ -164,7 +164,7 @@ cd /root/HM/bin
     --TrustStoreDir=../cfg/keystore/ca
 ```
 
-### Make GStreamer to verify an HM-signed stream (H.265)
+### Make GStreamer to verify an HM-signed stream
 ```bash
 GST_DEBUG="dscverifier:5" \
 gst-launch-1.0 -e filesrc location=/root/HM/bin/str.bin ! \
@@ -175,7 +175,7 @@ gst-launch-1.0 -e filesrc location=/root/HM/bin/str.bin ! \
   fakesink
 ```
 
-### Make HM to encode without signing a stream (H.265)
+### Make HM to encode without signing a stream
 ```bash
 cd /root/HM/bin
 ./TAppEncoderStatic \
@@ -188,7 +188,7 @@ cd /root/HM/bin
     -b /root/HM/bin/str-no-dsc.bin
 ```
 
-### Make GStreamer to sign an HM unsigned stream (H.265)
+### Make GStreamer to sign an HM unsigned stream
 ```bash
 GST_DEBUG=dscsigner:5,h265seiinserter:5 \
 gst-launch-1.0 -e \
@@ -203,7 +203,7 @@ gst-launch-1.0 -e \
   filesink location=/root/HM/bin/str-gst-signed.h265
 ```
 
-### Make HM to decode and verify a GStreamer-signed stream (H.265)
+### Make HM to decode and verify a GStreamer-signed stream
 ```bash
 cd /root/HM/bin
 ./TAppDecoderStatic \
